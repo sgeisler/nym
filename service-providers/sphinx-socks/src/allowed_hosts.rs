@@ -133,7 +133,7 @@ impl HostsStore {
     }
 
     fn contains(&self, host: &str) -> bool {
-        self.hosts.contains(&host.to_string())
+        self.hosts.contains(&"*".into()) || self.hosts.contains(&host.to_string())
     }
 
     /// Returns the default base directory for the storefile.
