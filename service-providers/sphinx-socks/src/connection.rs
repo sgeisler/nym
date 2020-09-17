@@ -26,7 +26,10 @@ impl Connection {
         initial_data: &[u8],
         return_address: Recipient,
     ) -> io::Result<Self> {
-        let mut conn = TcpStream::connect(&address).await?;
+        let mut conn = tokio_socks::tcp::Socks5Stream::connect(
+            "127.0.0.1:9050",
+            address.clone()
+        ).await.unwrap().into_inner();
 
         // write the initial data to the connection before continuing
         info!(
