@@ -41,6 +41,7 @@ members = [
     "mixnode",
     "network-monitor",
     "service-providers/network-requester",
+    "scripts/metrician"
 ]
 
 default-members = [
