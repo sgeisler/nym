@@ -201,6 +201,8 @@ impl TopologyRefresher {
             Ok(gateways) => gateways,
         };
 
+        debug!("Found {} mixnodes and {} gateways", mixnodes.len(), gateways.len());
+        trace!("Mixnodes: {:?}", mixnodes);
         let topology = nym_topology_from_bonds(mixnodes, gateways);
 
         // TODO: I didn't want to change it now, but the expected system version should rather be put in config
